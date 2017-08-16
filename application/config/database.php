@@ -69,7 +69,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
-| ['native'] TRUE/FALSE MySQL integer field is returned as itself or string in PHP
+| ['native'] TRUE/FALSE SQL integer field is returned as itself or string in PHP.
+| It works for pdo and mysqli dbdriver
 */
 $active_group = 'default';
 $query_builder = TRUE;
@@ -80,7 +81,7 @@ $db['default'] = array(
 	'username' => '',
 	'password' => '',
 	'database' => '',
-	'dbdriver' => 'mysqli',
+	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

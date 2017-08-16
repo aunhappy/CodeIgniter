@@ -87,7 +87,7 @@ class CI_DB_mysqli_driver extends CI_DB {
 	public $stricton;
 
 	/**
-	 * MySQL integer field is returned as itself or string in PHP
+	 * SQL integer field is returned as itself or string in PHP
 	 *
 	 * Convert integer and float columns back to PHP numbers. Only valid for mysqlnd.
 	 * @var bool

@@ -66,6 +66,14 @@ class CI_DB_pdo_driver extends CI_DB {
 	 */
 	public $options = array();
 
+	/**
+	 * SQL integer field is returned as itself or string in PHP
+	 *
+	 * Convert integer and float columns back to PHP numbers. Only valid for mysqlnd.
+	 * @var bool
+	 */
+	public $native;
+
 	// --------------------------------------------------------------------
 
 	/**
@@ -129,6 +137,14 @@ class CI_DB_pdo_driver extends CI_DB {
 		if ($persistent === TRUE)
 		{
 			$this->options[PDO::ATTR_PERSISTENT] = TRUE;
+		}
+
+		if(isset($this->native))
+		{
+			if($this->native)
+			{
+				$this->options[PDO::ATTR_EMULATE_PREPARES] = FALSE;
+			}
 		}
 
 		try
